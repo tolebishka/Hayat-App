@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MainApp: View {
+struct MainView: View {
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -20,5 +20,5 @@ struct MainApp: View {
 }
 
 #Preview {
-    MainApp()
+    MainView()
 }
