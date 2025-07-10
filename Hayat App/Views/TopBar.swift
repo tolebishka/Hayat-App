@@ -53,8 +53,8 @@ struct TopBar: View {
                 }
             }
             .frame(width: nil, height: 60)
-//            .background(.thinMaterial)
-//            .cornerRadius(20)
+            .background(.white)
+            .cornerRadius(20)
             .padding()
         }
     }

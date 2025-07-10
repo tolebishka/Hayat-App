@@ -1,18 +1,23 @@
 import SwiftUI
 
+
 struct DayListView: View {
     @EnvironmentObject var dayListViewModel: DayListViewModel
     var body: some View {
+        
         ZStack{
+            Color(.secondBackground)
+                .ignoresSafeArea()
+            
             if dayListViewModel.items.isEmpty{
                 Text("No Items")
                 VStack{
                     Spacer()
                     DayAddItemView()
-                        .padding(.bottom, 60)
+                        .padding(.bottom, 100)
                 }
             }else{
-                ZStack{
+                VStack{
                     List{
                         Section("Not Done"){
                             ForEach(dayListViewModel.items.filter {!$0.isCompleted}){item in
@@ -22,6 +27,7 @@ struct DayListView: View {
                                             dayListViewModel.updateItem(item: item)
                                         }
                                     }
+                                    .listRowBackground(Color(.secondBackground))
                             }
                             .onDelete(perform: dayListViewModel.deleteItem)
                             .onMove(perform: dayListViewModel.moveItem)
@@ -35,19 +41,19 @@ struct DayListView: View {
                                             dayListViewModel.updateItem(item: item)
                                         }
                                     }
+                                    .listRowBackground(Color(.secondBackground))
                             }
                             .onDelete(perform: dayListViewModel.deleteItem)
                             .onMove(perform: dayListViewModel.moveItem)
                         }
                         .foregroundColor(.blue)
                     }
-                    .background(Color.black)
+                    .scrollContentBackground(.hidden)
                     VStack{
                         Spacer()
                         DayAddItemView()
-                            .padding(.bottom, 65)
+                            .padding(.bottom, 100)
                     }
-                    
                 }
             }
         }
