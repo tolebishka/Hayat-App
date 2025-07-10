@@ -7,11 +7,25 @@
 
 import SwiftUI
 
+enum LaunchScreenState: String {
+    case welcome
+    case home
+}
+
+
 @main
 struct Hayat_AppApp: App {
+    @AppStorage("launchScreen") var launchScreen: LaunchScreenState = .welcome
+
     var body: some Scene {
         WindowGroup {
-            MainView()
+            switch launchScreen {
+            case .welcome:
+                MainView()
+            case .home:
+                HomePageView()
+                    .environmentObject(DayListViewModel())
+            }
         }
     }
 }

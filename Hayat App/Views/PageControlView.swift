@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PageControlView: View {
+    @AppStorage("launchScreen") var launchScreen: LaunchScreenState?
     @EnvironmentObject var dayListViewModel: DayListViewModel
     @State var HomePageIsActive: Bool = false
     @State private var currentPage = 0
@@ -181,7 +182,7 @@ struct PageControlView: View {
                             
                             Button {
                                 withAnimation{
-                                    HomePageIsActive = true
+                                    launchScreen = .home
                                 }
                                 
                             } label: {

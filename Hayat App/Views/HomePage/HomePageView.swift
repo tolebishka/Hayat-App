@@ -15,7 +15,7 @@ struct HomePageView: View {
        }
     var body: some View {
         ZStack {
-            ZStack {
+            VStack {
                 TabView(selection: $tabSelected) {
                     DayListView()
                         .tabItem {
@@ -50,13 +50,9 @@ struct HomePageView: View {
                         .tag(Tab.gearshape)
                     }
                 
-                VStack {
-                    Spacer()
                     TopBar(selectedTab: $tabSelected)
-                        .background(Color.clear)
-                        .padding(.bottom, 20)
+                    .padding(.bottom, 15)
 
-                }
             }
         }
         .ignoresSafeArea(edges: .bottom)
