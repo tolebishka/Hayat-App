@@ -113,9 +113,10 @@ struct PageControlView: View {
                                 .font(.system(size: 12))
                                 .multilineTextAlignment(.center)
                                 .padding(.horizontal, 115)
-                            
-                            
                         }
+                        Divider()
+                            .frame(width:100,height: 2)
+                            .background(Color.firstBackground)
                         VStack(spacing: 6){
                             Text("Задачи на день")
                                 .font(.system(size: 13))
@@ -128,6 +129,9 @@ struct PageControlView: View {
                                 .frame(maxWidth: .infinity, alignment: .center)
                                 .padding(.horizontal, 95)
                         }
+                        Divider()
+                            .frame(width:100,height: 2)
+                            .background(Color.firstBackground)
                         VStack(spacing: 6){
                             Text("Заметки и мысли")
                                 .font(.system(size: 13))
@@ -141,6 +145,9 @@ struct PageControlView: View {
                                 .frame(maxWidth: .infinity, alignment: .center)
                                 .padding(.horizontal, 90)
                         }
+                        Divider()
+                            .frame(width:100,height: 2)
+                            .background(Color.firstBackground)
                         VStack(spacing: 6){
                             Text("ИИ - Ассистент")
                                 .font(.system(size: 13))
