@@ -102,7 +102,7 @@ struct PageControlView: View {
                         """)
                     .font(.system(size: 16))
                     .multilineTextAlignment(.center)
-                    VStack(spacing: 40){
+                    VStack(spacing: 30){
                         VStack(spacing: 6){
                             Text("Цели на месяц")
                                 .font(.system(size: 13))
