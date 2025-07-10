@@ -142,32 +142,6 @@ struct PageControlView: View {
                                 .padding(.horizontal, 90)
                         }
                         VStack(spacing: 6){
-                            Text("Идеи")
-                                .font(.system(size: 13))
-                                .italic()
-                                .multilineTextAlignment(.center)
-                            
-                            Text("Отдельный раздел для хранения и развития идей.")
-                            
-                                .font(.system(size: 13))
-                                .multilineTextAlignment(.center)
-                                .frame(maxWidth: .infinity, alignment: .center)
-                                .padding(.horizontal, 100)
-                        }
-                        VStack(spacing: 6){
-                            Text("Намаз трекер")
-                                .font(.system(size: 13))
-                                .italic()
-                                .multilineTextAlignment(.center)
-                            
-                            Text("Таблица или чек-лист с 5 молитвами в день.")
-                            
-                                .font(.system(size: 13))
-                                .multilineTextAlignment(.center)
-                                .frame(maxWidth: .infinity, alignment: .center)
-                                .padding(.horizontal, 129)
-                        }
-                        VStack(spacing: 6){
                             Text("ИИ - Ассистент")
                                 .font(.system(size: 13))
                                 .italic()
