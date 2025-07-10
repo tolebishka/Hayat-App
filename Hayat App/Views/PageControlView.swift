@@ -156,7 +156,21 @@ struct PageControlView: View {
                             
                         }
                         Spacer()
-                        
+                       
+                        Button {
+                            withAnimation{
+                                
+                            }
+                            
+                        } label: {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 22)
+                                    .foregroundColor(.firstBackground)
+                                    .frame(width: 224, height: 45)
+                                Text("Bismillah")
+                                    .foregroundColor(Color.secondBackground)
+                            }
+                        }
                     }
                 }
                 .tag(2)
