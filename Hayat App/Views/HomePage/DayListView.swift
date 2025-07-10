@@ -14,6 +14,7 @@ struct DayListView: View {
             if dayListViewModel.items.isEmpty{
                 Text("No Items")
             }else{
+                VStack{
                     List{
                         Section("Not Done"){
                             ForEach(dayListViewModel.items.filter {!$0.isCompleted}){item in
@@ -42,6 +43,8 @@ struct DayListView: View {
                         }
                         .foregroundColor(.blue)
                     }
+                    DayAddItemView()
+                }
             }
         }
     }
