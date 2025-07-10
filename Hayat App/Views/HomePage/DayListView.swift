@@ -1,10 +1,3 @@
-//
-//  DayListView.swift
-//  Hayat App
-//
-//  Created by Arcana Inc on 10.07.2025.
-//
-
 import SwiftUI
 
 struct DayListView: View {
@@ -13,8 +6,13 @@ struct DayListView: View {
         ZStack{
             if dayListViewModel.items.isEmpty{
                 Text("No Items")
-            }else{
                 VStack{
+                    Spacer()
+                    DayAddItemView()
+                        .padding(.bottom, 60)
+                }
+            }else{
+                ZStack{
                     List{
                         Section("Not Done"){
                             ForEach(dayListViewModel.items.filter {!$0.isCompleted}){item in
@@ -43,7 +41,13 @@ struct DayListView: View {
                         }
                         .foregroundColor(.blue)
                     }
-                    DayAddItemView()
+                    .background(Color.black)
+                    VStack{
+                        Spacer()
+                        DayAddItemView()
+                            .padding(.bottom, 65)
+                    }
+                    
                 }
             }
         }
@@ -53,7 +57,8 @@ struct DayListView: View {
 #Preview {
     NavigationView{
         DayListView()
+            .environmentObject(DayListViewModel())
     }
-    .environmentObject(DayListViewModel())
+    
     
 }

@@ -43,7 +43,7 @@ struct TopBar: View {
                     Image(systemName: selectedTab == tab ? fillImage : tab.rawValue)
                         .scaleEffect(tab == selectedTab ? 1.25 : 1.0)
                         .foregroundColor(tab == selectedTab ? tabColor : .gray)
-                        .font(.system(size: 20))
+                        .font(.system(size: 22))
                         .onTapGesture {
                             withAnimation(.easeInOut(duration: 0.1)) {
                                 selectedTab = tab
@@ -57,6 +57,7 @@ struct TopBar: View {
             .cornerRadius(20)
             .padding()
         }
+        .background(Color.clear)
     }
 }
 

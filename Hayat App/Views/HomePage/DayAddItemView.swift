@@ -14,24 +14,28 @@ struct DayAddItemView: View {
     @State var showAlert: Bool = false
     var body: some View {
             HStack{
-                TextField("Type something", text: $textFieldText)
-                    .padding(.horizontal)
-                    .frame(width: 300,height: 45)
-                    .background(Color(#colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)))
+                TextField("", text: $textFieldText,
+                          prompt: Text("Write a goal....")
+                    .foregroundColor(.white))
+                    .padding(.horizontal, 20)
+                    .frame(width: 243, height: 47)
+                    .foregroundColor(.white) // цвет введённого текста
+                    .background(Color.firstBackground)
                     .cornerRadius(10)
+
                 Button {
                     saveButton()
                     textFieldText = ""
                 } label: {
-                    Text("Save".uppercased())
+                    Text("Add")
                         .foregroundColor(.white)
-                        .frame(height: 45)
+                        .frame(height: 47)
                         .frame(maxWidth: .infinity)
-                        .background(Color.accentColor)
+                        .background(Color.firstBackground)
                         .cornerRadius(10)
                 }
             }
-            .padding(14)
+            .padding(.horizontal, 45)
         .alert(isPresented: $showAlert, content: {
             getAlert()
         })
@@ -45,9 +49,9 @@ struct DayAddItemView: View {
     }
     
     func isTextAvailable() -> Bool {
-        if textFieldText.isEmpty && textFieldText.count < 3 {
-            alertText = "Wrong, type more than 3 character"
-            showAlert.toggle()
+        if textFieldText.trimmingCharacters(in: .whitespacesAndNewlines).count < 3 {
+            alertText = "Введите минимум 3 символа"
+            showAlert = true
             return false
         }
         return true
@@ -61,7 +65,8 @@ struct DayAddItemView: View {
 #Preview {
     NavigationView{
         DayAddItemView()
+            .environmentObject(DayListViewModel())
     }
-    .environmentObject(DayListViewModel())
+    
     
 }

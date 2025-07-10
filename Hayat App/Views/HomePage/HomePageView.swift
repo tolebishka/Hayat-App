@@ -15,7 +15,7 @@ struct HomePageView: View {
        }
     var body: some View {
         ZStack {
-            VStack {
+            ZStack {
                 TabView(selection: $tabSelected) {
                     DayListView()
                         .tabItem {
@@ -30,19 +30,43 @@ struct HomePageView: View {
                             Text("Gün Listesi")
                         }
                         .tag(Tab.message)
+                    Text("person")
+                        .tabItem {
+                            Image(systemName: "list.bullet")
+                            Text("person")
+                        }
+                        .tag(Tab.person)
+                    Text("leaf")
+                        .tabItem {
+                            Image(systemName: "list.bullet")
+                            Text("leaf")
+                        }
+                        .tag(Tab.leaf)
+                    Text("gearshape gearshape")
+                        .tabItem {
+                            Image(systemName: "list.bullet")
+                            Text("gearshape")
+                        }
+                        .tag(Tab.gearshape)
                     }
+                
+                VStack {
+                    Spacer()
                     TopBar(selectedTab: $tabSelected)
-                }
+                        .background(Color.clear)
+                        .padding(.bottom, 20)
+
                 }
             }
-            
         }
-        
-
+        .ignoresSafeArea(edges: .bottom)
+    }
+}
 #Preview {
     NavigationView{
         HomePageView()
+            .environmentObject(DayListViewModel())
     }
-    .environmentObject(DayListViewModel())
+    
     
 }
