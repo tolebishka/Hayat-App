@@ -42,7 +42,7 @@ struct PageControlView: View {
                         .padding(.top, 95)
                         .font(.system(size: 16))
                         .multilineTextAlignment(.center)
-                    VStack(spacing: 53){
+                    VStack(spacing: 20){
                         VStack(spacing: 6){
                             Text("Определение приоритетов")
                                 .font(.system(size: 13))
