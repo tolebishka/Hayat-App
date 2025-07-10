@@ -5,9 +5,19 @@ struct DayListRowView: View {
     var body: some View {
         HStack{
             Image(systemName: item.isCompleted ? "checkmark.circle" : "circle")
+                .font(.title3)
                 .foregroundColor(item.isCompleted ? .green : .red)
                 .foregroundColor(.blue)
-            Text(item.title)
+            VStack(alignment: .leading, spacing: 4){
+                Text(item.title)
+                    .foregroundColor(item.isCompleted ? .green : .red)
+                    .strikethrough(item.isCompleted, color: Color.green)
+                    
+                Rectangle()
+                    .fill(item.isCompleted ? Color.green : Color.red.opacity(0.5))
+                    .frame(height: 1)
+            }
+            
             Spacer()
         }
     }

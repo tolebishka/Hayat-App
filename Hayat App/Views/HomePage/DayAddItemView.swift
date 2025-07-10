@@ -19,7 +19,7 @@ struct DayAddItemView: View {
                     .foregroundColor(.white))
                     .padding(.horizontal, 20)
                     .frame(width: 243, height: 47)
-                    .foregroundColor(.white) // цвет введённого текста
+                    .foregroundColor(.white)
                     .background(Color.firstBackground)
                     .cornerRadius(10)
 
