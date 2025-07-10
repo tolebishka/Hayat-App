@@ -11,7 +11,7 @@ import SwiftUI
 struct Hayat_AppApp: App {
     var body: some Scene {
         WindowGroup {
-            MainApp()
+            MainView()
         }
     }
 }
