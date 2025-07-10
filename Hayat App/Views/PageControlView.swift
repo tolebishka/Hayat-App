@@ -177,7 +177,7 @@ struct PageControlView: View {
                 .lineLimit(nil)
                 .fixedSize(horizontal: false, vertical: true)
                 .frame(maxWidth: .infinity)
-                .padding(.top, 50)
+                .padding(.top, 20)
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
 //            .indexViewStyle(.page(backgroundDisplayMode: .never))
