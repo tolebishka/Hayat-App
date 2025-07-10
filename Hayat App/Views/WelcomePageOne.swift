@@ -6,11 +6,11 @@ struct WelcomePageOne: View {
             Color("Second Background").ignoresSafeArea()
 
             // Украшения в углах
-            Image("Shape-right 1")
-                .offset(x: 166, y: 250)
+            Image("Ornament right black")
+                .offset(x: 166, y: 350)
                 .aspectRatio(contentMode: .fill)
-            Image("Shape-left 1")
-                .offset(x: -166, y: -200)
+            Image("Ornament left black")
+                .offset(x: -166, y: -350)
                 .aspectRatio(contentMode: .fill)
 
             PageControlView()
