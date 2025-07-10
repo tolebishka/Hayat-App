@@ -9,13 +9,40 @@ struct DayListView: View {
             Color(.secondBackground)
                 .ignoresSafeArea()
             
-            
             if dayListViewModel.items.isEmpty{
-                Text("No Items")
                 VStack{
-                    Spacer()
-                    DayAddItemView()
-                        .padding(.bottom, 100)
+                    VStack(spacing: 14){
+                        Text("ЗАДАЧИ НА ДЕНЬ")
+                            .font(.system(size: 24))
+                            .bold()
+                            .multilineTextAlignment(.center)
+                            .frame(maxWidth: .infinity, alignment: .center)
+                            .padding(.top, 45)
+                        Text("ЧТО ВЫ ХОТЕЛИ БЫ ИЗМЕНИТЬ В СЕБЕ, КОТОРЫЙ ПРИБЛИЗИТ ВАС К ВСЕВЫШНЕМУ")
+                            .font(.system(size: 11))
+                            .multilineTextAlignment(.center)
+                            .frame(maxWidth: .infinity, alignment: .center)
+                            .padding(.horizontal, 75)
+                    }
+
+                        List{
+                            Section("Ин Ша Аллах, закончу"){
+     
+                            }
+                            Section("АльхамудилЛях, закончил"){
+                                }
+
+                        }
+                    
+                    
+                    .scrollContentBackground(.hidden)
+                    VStack{
+                        Spacer()
+                        DayAddItemView()
+                            .padding(.bottom, 100)
+                }
+                
+               
                 }
             }else{
                 VStack{

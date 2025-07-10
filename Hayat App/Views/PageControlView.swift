@@ -183,6 +183,7 @@ struct PageControlView: View {
                             Button {
                                 withAnimation(.easeInOut){
                                     launchScreen = .home
+                                    HomePageIsActive = true
                                 }
                                 
                             } label: {
