@@ -9,6 +9,10 @@ import SwiftUI
 
 struct PageControlView: View {
     @AppStorage("launchScreen") var launchScreen: LaunchScreenState = .welcome
+    
+    @State private var askUsername: Bool = false
+    @AppStorage("username") private var username: String = ""
+    
     @EnvironmentObject var dayListViewModel: DayListViewModel
     @State var HomePageIsActive: Bool = false
     @State private var currentPage = 0
@@ -181,10 +185,11 @@ struct PageControlView: View {
                             Spacer()
                             
                             Button {
-                                withAnimation(.easeInOut){
-                                    launchScreen = .home
-                                    HomePageIsActive = true
-                                }
+                                askUsername.toggle()
+//                                withAnimation(.easeInOut){
+//                                    launchScreen = .home
+//                                    HomePageIsActive = true
+//                                }
                                 
                             } label: {
                                 ZStack {
@@ -208,7 +213,55 @@ struct PageControlView: View {
                 PageIndicator(count: 3, currentIndex: currentPage)
                 
             }
+            .ignoresSafeArea(.keyboard, edges: .all)
+            
+            .overlay{
+                ZStack(alignment: .bottom){
+                    Rectangle()
+                        .fill(.black.opacity(askUsername ? 0.3 : 0))
+                        .ignoresSafeArea()
+                        .onTapGesture {
+                            askUsername = false
+                        }
+                    if askUsername {
+                        UsernameView()
+                            .transition(.move(edge: .bottom).combined(with: .offset(y: 100)))
+                    }
+                }
+                .animation(.snappy, value: askUsername)
+            }
         }
+    }
+    
+    @ViewBuilder
+    func UsernameView() -> some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text("Давайте начнем с того, чтобы узнать ваше имя")
+                .font(.caption)
+                .foregroundColor(.blackText)
+            
+            TextField("Name Surname", text: $username)
+                .applyPaddedBackground(10, hPadding: 15, vPadding: 12)
+                .opacityShadow(.blackText, opacity: 0.1, radius: 5)
+            Button {
+                withAnimation(.easeInOut){
+                            launchScreen = .home
+                            HomePageIsActive = true
+                        }
+            } label: {
+                Text("Bismillah")
+                    .fontWeight(.semibold)
+                    .foregroundStyle(.white)
+                    .hSpacing(.center)
+                    .padding(.vertical, 12)
+                    .background(.firstBackground.gradient, in: .rect(cornerRadius: 12))
+            }
+            .disableWithOpacity(username.isEmpty)
+            .padding(.top, 10)
+        }
+        .applyPaddedBackground(12)
+        .padding(.horizontal, 20)
+        .padding(.bottom, 10)
     }
 }
 
