@@ -98,7 +98,7 @@ struct PageControlView: View {
                 VStack(alignment: .center, spacing: 64) {
                     Text("""
                         Hayat App
-                        cостоит и шесть частей
+                        cостоит из четерех частей
                         """)
                     .font(.system(size: 16))
                     .multilineTextAlignment(.center)
