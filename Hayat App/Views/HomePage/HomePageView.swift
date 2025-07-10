@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct HomePageView: View {
+
     @EnvironmentObject var dayListViewModel: DayListViewModel
     @State private var tabSelected: Tab = .house
     
@@ -10,10 +11,11 @@ struct HomePageView: View {
 
     var body: some View {
         ZStack {
+            
             // Фон
             Color("firstBackground")
                 .ignoresSafeArea()
-
+            
             // Контент
             TabView(selection: $tabSelected) {
                 DayListView()
@@ -61,6 +63,8 @@ struct HomePageView: View {
         }
         .ignoresSafeArea(edges: .bottom)
     }
+    
+
 }
 
 #Preview {

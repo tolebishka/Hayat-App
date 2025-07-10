@@ -196,7 +196,7 @@ struct PageControlView: View {
                                     RoundedRectangle(cornerRadius: 22)
                                         .foregroundColor(.firstBackground)
                                         .frame(width: 224, height: 45)
-                                    Text("Bismillah")
+                                    Text("Start")
                                         .foregroundColor(Color.secondBackground)
                                 }
                             }

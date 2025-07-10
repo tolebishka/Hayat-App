@@ -2,9 +2,9 @@ import SwiftUI
 
 
 struct DayListView: View {
+    @AppStorage("username") private var username: String = ""
     @EnvironmentObject var dayListViewModel: DayListViewModel
     var body: some View {
-        
         ZStack{
             Color(.secondBackground)
                 .ignoresSafeArea()
@@ -12,6 +12,15 @@ struct DayListView: View {
             if dayListViewModel.items.isEmpty{
                 VStack{
                     VStack(spacing: 14){
+                        HStack{
+                            NameView()
+                                .padding(.horizontal, 16)
+                                .padding(.vertical, 10)
+                            ProfileImage()
+                                .padding(.horizontal, 16)
+                                .padding(.vertical, 10)
+                        }
+                        
                         Text("ЗАДАЧИ НА ДЕНЬ")
                             .font(.system(size: 24))
                             .bold()
@@ -22,31 +31,36 @@ struct DayListView: View {
                             .font(.system(size: 11))
                             .multilineTextAlignment(.center)
                             .frame(maxWidth: .infinity, alignment: .center)
-                            .padding(.horizontal, 75)
+                            .padding(.horizontal, 70)
                     }
 
-                        List{
-                            Section("Ин Ша Аллах, закончу"){
-     
-                            }
-                            Section("АльхамудилЛях, закончил"){
-                                }
-
+                    List{
+                        Section("Ин Ша Аллах, закончу"){
+                            
                         }
-                    
-                    
+                        Section("АльхамудилЛях, закончил"){
+                        }
+                    }
                     .scrollContentBackground(.hidden)
                     VStack{
                         Spacer()
                         DayAddItemView()
                             .padding(.bottom, 100)
                 }
-                
-               
-                }
-            }else{
+            }
+        }  
+            else{
                 VStack{
                     VStack(spacing: 14){
+                        HStack{
+                            NameView()
+                                .padding(.horizontal, 16)
+                                .padding(.vertical, 10)
+                            ProfileImage()
+                                .padding(.horizontal, 16)
+                                .padding(.vertical, 10)
+                        }
+                        
                         Text("ЗАДАЧИ НА ДЕНЬ")
                             .font(.system(size: 24))
                             .bold()
@@ -57,7 +71,7 @@ struct DayListView: View {
                             .font(.system(size: 11))
                             .multilineTextAlignment(.center)
                             .frame(maxWidth: .infinity, alignment: .center)
-                            .padding(.horizontal, 75)
+                            .padding(.horizontal, 70)
                     }
                     List{
                         Section("Ин Ша Аллах, закончу"){
@@ -93,15 +107,33 @@ struct DayListView: View {
                         .foregroundColor(.blue)
                     }
                     .scrollContentBackground(.hidden)
-                        VStack{
-                            Spacer()
-                            DayAddItemView()
-                                .padding(.bottom, 100)
-                        }
                     
+                    DayAddItemView()
+                        .padding(.bottom, 100)
                 }
+                .background(Color(.secondBackground))
             }
         }
+    }
+    
+    func NameView() -> some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text("Ассаляму алейкум 👋")
+                .font(.title2.bold())
+                .lineLimit(2)
+            Text("\(username)!")
+                .font(.title3.bold())
+                .lineLimit(2)
+        }
+        .hSpacing(.leading)
+    }
+    
+    func ProfileImage() -> some View {
+        Image(systemName: "person.circle")
+            .resizable()
+            .frame(width: 44, height: 44)
+            .clipShape(Circle())
+            .padding()
     }
 }
 
